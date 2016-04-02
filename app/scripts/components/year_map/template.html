@@ -1,0 +1,20 @@
+<div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Year: {{ year.value }}</label>
+        <div ui-slider="{ stop: sliderStop,  disabled: state.isWorking }"  min="1950" max="2050" ng-model="year.value"></div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="row" data-ng-init="map={}">
+    <div class="col-md-12">
+      <leaflet lf-center="center"  layers="layers"  markers="map.markers" event-broadcast="events" height="680px" width="100%"></leaflet>
+    </div>
+  </div>
+
+</div>

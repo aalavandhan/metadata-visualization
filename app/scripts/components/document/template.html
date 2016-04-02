@@ -1,0 +1,134 @@
+<div class="document">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center">
+        <span data-ng-bind="document.displayType() | uppercase"></span>
+        <span data-ng-if="document.isJournal()">[Journal]</span>
+      </h3>
+      <br />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+
+      <table class="table table-striped">
+        <tr><th>Document Object Identifier:</th> <td><a href="{{document.doi}}">{{document.id}}</a></td></tr>
+        <tr><th>Journal Title:</th> <td>{{ document.journal['header-title'] || '-' }}</td></tr>
+        <tr><th>Document Title:</th> <td>{{ document.journal.tile || '-' }}</td></tr>
+        <tr><th>Abstract</th> <td>{{ ( document.journal.abstract || '-' ) }}</td></tr>
+        <tr><th>Authors:</th> <td>{{ document.getAuthors().join(",") || '-' }}</td></tr>
+        <tr><th>Affiliations:</th> <td>{{ document.getAffiliations().join(",") || '-' }}</td></tr>
+        <tr><th>Meta-Authors:</th> <td>{{ document.journal['header-author'] || '-' }}</td></tr>
+        <tr><th>Foot-Note:</th> <td>{{ document.journal['header-author'] || '-' }}</td></tr>
+        <tr><th>Date:</th> <td>{{ document.journal['date-type'] }} {{ document.journal['date'] || '-' }}</td></tr>
+        <tr><th>File created time:</th> <td>{{ document.journal['created-time'] || '-' }}</td></tr>
+      </table>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-4" data-ng-if="document.isEntityPresent('sweet')" class="tags-container">
+      <h4>Sweet Entities</h4>
+      <div>
+        <span data-ng-repeat="e in document.getEntities('sweet')">
+          <span class="label label-default" data-ng-bind="e"></span>&nbsp;
+        </span>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div  data-ng-if="document.isEntityPresent('LOCATION')" class="tags-container">
+        <h4>Locations</h4>
+        <div>
+          <span data-ng-repeat="e in document.getEntities('LOCATION')">
+            <span class="label label-default" data-ng-bind="e"></span>&nbsp;
+          </span>
+        </div>
+      </div>
+
+      <div data-ng-if="document.isEntityPresent('ORGANIZATION')" class="tags-container">
+        <h4>Organizations</h4>
+        <div>
+          <span data-ng-repeat="e in document.getEntities('ORGANIZATION')">
+            <span class="label label-default" data-ng-bind="e"></span>&nbsp;
+          </span>
+        </div>
+      </div>
+
+      <div data-ng-if="document.isEntityPresent('PERSION')" class="tags-container">
+        <h4>Person</h4>
+        <div>
+          <span data-ng-repeat="e in document.getEntities('PERSION')">
+            <span class="label label-default" data-ng-bind="e"></span>&nbsp;
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div data-ng-if="document.isEntityPresent('DATE')" class="tags-container">
+        <h4>Date</h4>
+        <div>
+          <span data-ng-repeat="e in document.getEntities('DATE')">
+            <span class="label label-default" data-ng-bind="e"></span>&nbsp;
+          </span>
+        </div>
+      </div>
+      <div data-ng-if="document.isEntityPresent('TIME')" class="tags-container">
+        <h4>Time</h4>
+        <div>
+          <span data-ng-repeat="e in document.getEntities('TIME')">
+            <span class="label label-default" data-ng-bind="e"></span>&nbsp;
+          </span>
+        </div>
+      </div>
+
+      <div data-ng-if="document.isEntityPresent('MONEY')" class="tags-container">
+        <h4>Money</h4>
+        <div>
+          <span data-ng-repeat="e in document.getEntities('MONEY')">
+            <span class="label label-default" data-ng-bind="e"></span>&nbsp;
+          </span>
+        </div>
+      </div>
+
+      <div data-ng-if="document.isEntityPresent('emails') || document.isEntityPresent('phones') || document.isEntityPresent('urls')" class="tags-container">
+        <h4>Misc</h4>
+        <div>
+          <span data-ng-repeat="e in document.getEntities('emails')">
+            <span class="label label-default" data-ng-bind="e"></span>&nbsp;
+          </span>
+          <span data-ng-repeat="e in document.getEntities('phones')">
+            <span class="label label-default" data-ng-bind="e"></span>&nbsp;
+          </span>
+          <span data-ng-repeat="e in document.getEntities('urls')">
+            <span class="label label-default" data-ng-bind="e"></span>&nbsp;
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" data-ng-if="document.geo.length > 0">
+    <hr />
+    <div class="col-md-12">
+      <leaflet markers="map.markers" height="480px" width="100%"></leaflet>
+    </div>
+  </div>
+
+
+  <div data-ng-if="document.journal && document.journal['related-publications'].length > 0">
+    <hr />
+    <h4>References</h4>
+    <ul>
+      <li data-ng-repeat="r in document.journal['related-publications']">
+        <p>
+          <a href="{{r.URL}}">{{ r.title }}</a> <br/>
+          {{ r.abstract }}
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>

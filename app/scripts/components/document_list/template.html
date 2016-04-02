@@ -1,0 +1,24 @@
+<div>
+  <div class="document-container" infinite-scroll="loadDocuments()">
+    <div data-ng-repeat="d in documents"
+         class="document-list"
+         data-ng-click="openDocument(d)">
+
+      <div class="header">
+        <p>
+          <span data-ng-bind="d.displayType() | uppercase"></span>
+          <span data-ng-if="d.isJournal()">[Journal]</span>
+        </p>
+        <a href="{{d.doi}}">{{d.id}}</a>
+      </div>
+
+      <div class="body">
+        <p><b>Journal Title:</b> {{ d.journal['header-title'] || '-' }}</p>
+        <p><b>Docment Title:</b> {{ d.journal.tile || '-' }}</p>
+        <p><b>Abstract</b> {{ ( d.journal.abstract || '-' ) | limitTo:100 }}</p>
+        <p><b>Authors:</b> {{ d.getAuthors().join(",") || '-' | limitTo:100 }}</p>
+        <p><b>Affiliations:</b> {{ d.getAffiliations().join(",") || '-' | limitTo:100 }}</p>
+      </div>
+    </div>
+  </div>
+</div>
