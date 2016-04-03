@@ -7,6 +7,13 @@
         <div ui-slider="{ stop: sliderStop,  disabled: state.isWorking }"  min="1950" max="2050" ng-model="year.value"></div>
       </div>
     </div>
+
+    <div class="col-md-4  col-md-offset-4">
+      <div class="form-group">
+        <label>Size: {{ size.value }}</label>
+        <div ui-slider="{ stop: sliderStop,  disabled: state.isWorking }"  min="1" max="1000" ng-model="size.value"></div>
+      </div>
+    </div>
   </div>
 
   <hr />

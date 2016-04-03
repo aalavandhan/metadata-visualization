@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="bower_components/nvd3/build/nv.d3.css" />
     <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.min.css" />
+    <link rel="stylesheet" href="bower_components/leaflet-dist/leaflet.css" />
+    <link rel="stylesheet" href="bower_components/leaflet-draw/dist/leaflet.draw.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -107,6 +109,9 @@
     <script src="bower_components/ng-tags-input/ng-tags-input.min.js"></script>
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/angular-moment/angular-moment.js"></script>
+    <script src="bower_components/leaflet-dist/leaflet.js"></script>
+    <script src="bower_components/leaflet-draw/dist/leaflet.draw-src.js"></script>
+    <script src="bower_components/ui-leaflet-draw/dist/ui-leaflet-draw.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -115,6 +120,8 @@
         <script src="scripts/plugins/infinite_scroll.js"></script>
         <script src="scripts/plugins/d3.layout.cloud.js"></script>
         <script src="scripts/plugins/d3.slider.js"></script>
+
+        <script src="bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
 
         <!-- Additional modules -->
         <script src="bower_components/at-table/dist/angular-table.min.js"></script>
@@ -137,6 +144,7 @@
         <script src="scripts/data/aggregator.js"></script>
         <script src="scripts/data/entity.js"></script>
         <script src="scripts/data/sweet.js"></script>
+        <script src="scripts/data/search.js"></script>
 
         <!-- Components -->
         <script src="scripts/components/d3/module.js"></script>
@@ -145,6 +153,10 @@
         <script src="scripts/components/filters/entity_directive.js"></script>
         <script src="scripts/components/filters/doc_type_directive.js"></script>
         <script src="scripts/components/filters/magnification_directive.js"></script>
+
+        <script src="scripts/components/geographic_distribution/module.js"></script>
+        <script src="scripts/components/geographic_distribution/controller.js"></script>
+        <script src="scripts/components/geographic_distribution/directive.js"></script>
 
         <script src="scripts/components/year_map/module.js"></script>
         <script src="scripts/components/year_map/controller.js"></script>

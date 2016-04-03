@@ -24,6 +24,18 @@ angular.module("c.data")
         },
         cached: true
       },
+      count: {
+        method: 'POST',
+        url: "http://104.236.190.155:9200/polar/:docType/_search",
+        isArray: false,
+        transformRequest: cleanRequest,
+        transformResponse: function(response, headers){
+          var response = JSON.parse(response);
+          return {
+            count: response.hits.total
+          };
+        }
+      },
       search: {
         method: 'POST',
         url: "http://104.236.190.155:9200/polar/:docType/_search",

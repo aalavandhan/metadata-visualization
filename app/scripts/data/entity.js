@@ -1,7 +1,7 @@
 angular.module("c.data")
 
-.factory("c.data.Entity", ["c.data.Aggregator", "$q", "c.data.Document",
-  function(Aggregator, $q){
+.factory("c.data.Entity", ["c.data.Aggregator", "$q", "c.data.Search",
+  function(Aggregator, $q, Search){
 
     function Entity(){ };
 
@@ -77,6 +77,20 @@ angular.module("c.data")
               }
             })
             .then(function(response){
+              deferred.resolve(response);
+            }, function(){
+              deferred.reject();
+            });
+
+      return deferred.promise;
+    };
+
+
+    Entity.getCountDocumentWithinRegions = function(docType, coords){
+      var deferred = $q.defer();
+      new Search(docType, 0)
+            .geoBoundsQuery(coords[1], coords[3])
+            .execute().then(function(response){
               deferred.resolve(response);
             }, function(){
               deferred.reject();

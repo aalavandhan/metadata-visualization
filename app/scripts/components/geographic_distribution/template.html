@@ -1,0 +1,35 @@
+<div>
+  <div class="row">
+    <div class="col-md-8">
+      <leaflet lf-center="map.center"
+               lf-draw="map.drawOptions" height="480px" width="100%">
+      </leaflet>
+
+      <hr />
+
+      <table class="table table-striped" data-ng-show="regions.length > 0">
+        <thead>
+          <tr>
+            <th>Regions</th>
+            <th>Coordinates</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr data-ng-repeat="r in regions">
+            <td data-ng-bind="r.name"></td>
+            <td>
+              <div data-ng-repeat="c in r.coords" data-ng-bind="c"></div>
+            </td>
+            <td class="cursor text-danger" data-ng-click="removeRegion($index)"><i class="fa fa-times"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-4">
+      <nvd3 options="options" data="data"></nvd3>
+    </div>
+  </div>
+</div>

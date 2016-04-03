@@ -6,5 +6,6 @@ angular.module("c.components", [
   "c.components.filters",
   "c.components.timeVariance",
   "c.components.yearMap",
+  "c.components.geographicDistribution",
   "d3",
 ]);

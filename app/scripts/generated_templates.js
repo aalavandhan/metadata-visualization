@@ -225,6 +225,45 @@ angular.module('metadataVisualizationApp').run(['$templateCache', function($temp
   );
 
 
+  $templateCache.put('app/scripts/components/geographic_distribution/template.html',
+    "<div>\n" +
+    "  <div class=\"row\">\n" +
+    "    <div class=\"col-md-8\">\n" +
+    "      <leaflet lf-center=\"map.center\"\n" +
+    "               lf-draw=\"map.drawOptions\" height=\"480px\" width=\"100%\">\n" +
+    "      </leaflet>\n" +
+    "\n" +
+    "      <hr />\n" +
+    "\n" +
+    "      <table class=\"table table-striped\" data-ng-show=\"regions.length > 0\">\n" +
+    "        <thead>\n" +
+    "          <tr>\n" +
+    "            <th>Regions</th>\n" +
+    "            <th>Coordinates</th>\n" +
+    "            <th></th>\n" +
+    "          </tr>\n" +
+    "        </thead>\n" +
+    "\n" +
+    "        <tbody>\n" +
+    "          <tr data-ng-repeat=\"r in regions\">\n" +
+    "            <td data-ng-bind=\"r.name\"></td>\n" +
+    "            <td>\n" +
+    "              <div data-ng-repeat=\"c in r.coords\" data-ng-bind=\"c\"></div>\n" +
+    "            </td>\n" +
+    "            <td class=\"cursor text-danger\" data-ng-click=\"removeRegion($index)\"><i class=\"fa fa-times\"></i></td>\n" +
+    "          </tr>\n" +
+    "        </tbody>\n" +
+    "      </table>\n" +
+    "    </div>\n" +
+    "\n" +
+    "    <div class=\"col-md-4\">\n" +
+    "      <nvd3 options=\"options\" data=\"data\"></nvd3>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "</div>\n"
+  );
+
+
   $templateCache.put('app/scripts/components/tag_cloud/template.html',
     "<div>\n" +
     "  <div class=\"row\">\n" +
@@ -340,6 +379,13 @@ angular.module('metadataVisualizationApp').run(['$templateCache', function($temp
     "        <div ui-slider=\"{ stop: sliderStop,  disabled: state.isWorking }\"  min=\"1950\" max=\"2050\" ng-model=\"year.value\"></div>\n" +
     "      </div>\n" +
     "    </div>\n" +
+    "\n" +
+    "    <div class=\"col-md-4  col-md-offset-4\">\n" +
+    "      <div class=\"form-group\">\n" +
+    "        <label>Size: {{ size.value }}</label>\n" +
+    "        <div ui-slider=\"{ stop: sliderStop,  disabled: state.isWorking }\"  min=\"1\" max=\"1000\" ng-model=\"size.value\"></div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
     "  </div>\n" +
     "\n" +
     "  <hr />\n" +
@@ -405,7 +451,7 @@ angular.module('metadataVisualizationApp').run(['$templateCache', function($temp
     "        </div>\n" +
     "\n" +
     "        <p>\n" +
-    "          <b>Document count distribution</b>\n" +
+    "          <b>Document count distribution over time</b>\n" +
     "        </p>\n" +
     "      </div>\n" +
     "    </a>\n" +
@@ -427,6 +473,22 @@ angular.module('metadataVisualizationApp').run(['$templateCache', function($temp
     "    </a>\n" +
     "\n" +
     "  </div>\n" +
+    "\n" +
+    "  <div class=\"col-md-4\">\n" +
+    "\n" +
+    "    <a href=\"#/visualizations/geo_pie\">\n" +
+    "      <div class=\"tile hvr-float\">\n" +
+    "        <div class=\"big-icon\">\n" +
+    "          <i class=\"fa fa-map-marker\"></i>\n" +
+    "        </div>\n" +
+    "\n" +
+    "        <p>\n" +
+    "          <b>Document count distribution over space</b>\n" +
+    "        </p>\n" +
+    "      </div>\n" +
+    "    </a>\n" +
+    "\n" +
+    "  </div>\n" +
     "</div>\n" +
     "\n" +
     "<!-- <hr /> -->\n" +
@@ -438,6 +500,18 @@ angular.module('metadataVisualizationApp').run(['$templateCache', function($temp
     "  </div>\n" +
     "</div>\n" +
     " -->\n"
+  );
+
+
+  $templateCache.put('app/scripts/sections/visualizations/geo_pie.html',
+    "<div\n" +
+    "<div>\n" +
+    "  <div class=\"row\">\n" +
+    "    <div class=\"col-md-12\">\n" +
+    "      <div c-geo-dist></div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "</div>\n"
   );
 
 

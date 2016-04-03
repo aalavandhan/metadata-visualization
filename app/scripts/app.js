@@ -53,6 +53,11 @@ angular
         controller: 'c.util.controllers.StaticPageController',
       })
 
+      .when('/visualizations/geo_pie', {
+        templateUrl: 'app/scripts/sections/visualizations/geo_pie.html',
+        controller: 'c.util.controllers.StaticPageController',
+      })
+
       .when('/about', {
         templateUrl: 'app/scripts/sections/home/about.html',
         controller: 'c.util.controllers.StaticPageController',

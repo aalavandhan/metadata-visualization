@@ -40,12 +40,12 @@
 
 
       $scope.sliderStop = function(){
-        loadLocations($scope.year.value);
+        loadLocations($scope.year.value, $scope.size.value);
       };
 
-      function loadLocations(year){
+      function loadLocations(year, size){
         $scope.state.initiate();
-        Entity.getLocationsByYear('application-pdf', year, 100).then(function(r){
+        Entity.getLocationsByYear('application-pdf', year, size).then(function(r){
           $scope.state.success();
           $scope.map.markers = _.chain(r)
                                  .reduce(function(m, l, i){
@@ -67,8 +67,9 @@
 
       function defineScope(){
         $scope.year = { value: 2012 };
+        $scope.size = { value: 100  };
         $scope.state = StateHandler.getInstance();
-        loadLocations(2012);
+        loadLocations(2012, 100);
       };
 
       defineScope();
