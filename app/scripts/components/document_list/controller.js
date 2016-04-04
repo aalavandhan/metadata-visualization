@@ -19,7 +19,8 @@
               "journal.header-title",
               "journal.authors",
               "journal.abstract",
-              "metadata-score"
+              "metadata-score",
+              "local-path",
             ]
           }
         }, function(){
@@ -38,7 +39,6 @@
         $scope.openDocument = function(d){
           $location.path("/documents/" + d['mime-type'] + "/" + d.id);
         };
-
       };
 
       defineScope();

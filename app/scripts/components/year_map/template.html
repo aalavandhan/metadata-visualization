@@ -1,18 +1,38 @@
 <div>
-
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
+      <div c-doc-type-filter data-document-type="docType"></div>
+    </div>
+
+    <div class="col-md-3">
       <div class="form-group">
-        <label>Year: {{ year.value }}</label>
+        <label style="margin-bottom: 15px;">Year: {{ year.value }}</label>
         <div ui-slider="{ stop: sliderStop,  disabled: state.isWorking }"  min="1950" max="2050" ng-model="year.value"></div>
       </div>
     </div>
 
-    <div class="col-md-4  col-md-offset-4">
+    <div class="col-md-3">
       <div class="form-group">
-        <label>Size: {{ size.value }}</label>
+        <label style="margin-bottom: 15px;">Size: {{ size.value }}</label>
         <div ui-slider="{ stop: sliderStop,  disabled: state.isWorking }"  min="1" max="1000" ng-model="size.value"></div>
       </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group pull-right" style="padding-top: 25px;">
+        <button class="btn btn-md btn-warning"
+                data-ng-click="fn.addQuery()"
+                data-ng-disabled="state.isWorking"> Add Filter </button>&nbsp;&nbsp;
+        <button class="btn btn-md btn-primary"
+                data-ng-click="loadLocations(year.value, size.value, queries)"
+                data-ng-disabled="state.isWorking"> Query </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div c-concept-filter data-queries="queries" data-functions="fn"></div>
     </div>
   </div>
 

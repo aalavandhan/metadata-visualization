@@ -48,6 +48,8 @@ module.exports = function(config) {
       'bower_components/leaflet-dist/leaflet.js',
       'bower_components/leaflet-draw/dist/leaflet.draw-src.js',
       'bower_components/ui-leaflet-draw/dist/ui-leaflet-draw.js',
+      'bower_components/topojson/topojson.js',
+      'bower_components/datamaps/dist/datamaps.all.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

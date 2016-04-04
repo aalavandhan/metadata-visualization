@@ -2,11 +2,7 @@
   var app = angular.module("c.components.tagCloud");
   app.directive("cTagCloud", [function(){
     return{
-      scope: {
-        docType: "=",
-        entity: "=",
-        query: "=",
-      },
+      scope: { },
       replace: true,
       templateUrl: "app/scripts/components/tag_cloud/template.html",
       controller: "c.components.tagCloud.Controller",
@@ -22,7 +18,7 @@
         function draw(words) {
             d3.select(container).append("svg")
                     .attr("width", container.clientWidth)
-                    .attr("height", 600)
+                    .attr("height", 500)
                     .attr("class", "wordcloud")
                     .append("g")
                     // without the transform, words words would get cutoff to the left and top, they would
@@ -44,7 +40,7 @@
             // Clean
             angular.element(container).find('svg').remove();
 
-            d3.layout.cloud().size([container.clientWidth - 50, 550])
+            d3.layout.cloud().size([container.clientWidth - 50, 450])
               .words($scope.tags)
               .rotate(0)
               .fontSize(function(d) { return d.size; })

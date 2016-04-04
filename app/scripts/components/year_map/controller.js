@@ -1,8 +1,8 @@
 (function(){
   var app = angular.module("c.components.yearMap");
   app.controller("c.components.yearMap.Controller", [
-    "$scope", "c.util.services.StateHandler", "c.data.Entity",
-    function($scope, StateHandler, Entity){
+    "$scope", "c.util.services.StateHandler", "c.data.Entity","$timeout",
+    function($scope, StateHandler, Entity, $timeout){
 
       $scope.center = {
         lat: 0,
@@ -38,19 +38,14 @@
         }
       };
 
-
-      $scope.sliderStop = function(){
-        loadLocations($scope.year.value, $scope.size.value);
-      };
-
-      function loadLocations(year, size){
+      function loadLocations(year, size, queries){
         $scope.state.initiate();
-        Entity.getLocationsByYear('application-pdf', year, size).then(function(r){
+        Entity.getLocationsByYear($scope.docType, year, size, queries).then(function(r){
           $scope.state.success();
           $scope.map.markers = _.chain(r)
                                  .reduce(function(m, l, i){
                                     m["marker"+i] = {
-                                      message: l.name + ':' + l.size,
+                                      message: l.name,
                                       lat: l.lat,
                                       lng: l.lon,
                                       size: l.size,
@@ -69,7 +64,10 @@
         $scope.year = { value: 2012 };
         $scope.size = { value: 100  };
         $scope.state = StateHandler.getInstance();
-        loadLocations(2012, 100);
+        $scope.loadLocations = loadLocations;
+        $timeout(function(){
+          loadLocations(2012, 100, [ ]);
+        }, 500);
       };
 
       defineScope();

@@ -93,6 +93,15 @@ angular.module("c.data")
       return !_.isEmpty(this.entities[name]);
     };
 
+    proto.isImage = function(){
+      return this['mime-type'].split("-")[0] == "image";
+    };
+
+    proto.getURL = function(){
+      var parts = this['local-path'].split("/")
+      return "http://sng.usc.edu/polar/" + this['mime-type'] + "/" + parts.slice(-2).join("/")
+    };
+
     return Resource;
   }
 ]);

@@ -7,5 +7,7 @@ angular.module("c.components", [
   "c.components.timeVariance",
   "c.components.yearMap",
   "c.components.geographicDistribution",
+  "c.components.idfCloud",
+  "c.components.idfLocation",
   "d3",
 ]);

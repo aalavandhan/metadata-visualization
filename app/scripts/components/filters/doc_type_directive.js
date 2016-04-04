@@ -3,10 +3,13 @@
   app.directive("cDocTypeFilter", [function(){
     return{
       scope:{
-        docType: "=",
+        documentType: "=",
       },
       replace: true,
-      templateUrl: "app/scripts/components/filters/doc_type_template.html"
+      templateUrl: "app/scripts/components/filters/doc_type_template.html",
+      controller: ["$scope", "$timeout", function($scope, $timeout){
+        $scope.documentType = 'application-pdf';
+      }]
     };
   }]);
 }());

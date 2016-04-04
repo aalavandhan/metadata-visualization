@@ -62,7 +62,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container" style="min-height: 800px;">
       <div ng-view></div>
     </div>
 
@@ -112,6 +112,8 @@
     <script src="bower_components/leaflet-dist/leaflet.js"></script>
     <script src="bower_components/leaflet-draw/dist/leaflet.draw-src.js"></script>
     <script src="bower_components/ui-leaflet-draw/dist/ui-leaflet-draw.js"></script>
+    <script src="bower_components/topojson/topojson.js"></script>
+    <script src="bower_components/datamaps/dist/datamaps.all.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -120,6 +122,7 @@
         <script src="scripts/plugins/infinite_scroll.js"></script>
         <script src="scripts/plugins/d3.layout.cloud.js"></script>
         <script src="scripts/plugins/d3.slider.js"></script>
+        <script src="scripts/plugins/fd_cloud.js"></script>
 
         <script src="bower_components/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
 
@@ -153,6 +156,7 @@
         <script src="scripts/components/filters/entity_directive.js"></script>
         <script src="scripts/components/filters/doc_type_directive.js"></script>
         <script src="scripts/components/filters/magnification_directive.js"></script>
+        <script src="scripts/components/filters/concept_directive.js"></script>
 
         <script src="scripts/components/geographic_distribution/module.js"></script>
         <script src="scripts/components/geographic_distribution/controller.js"></script>
@@ -177,6 +181,14 @@
         <script src="scripts/components/document_list/module.js"></script>
         <script src="scripts/components/document_list/controller.js"></script>
         <script src="scripts/components/document_list/directive.js"></script>
+
+        <script src="scripts/components/idf_cloud/module.js"></script>
+        <script src="scripts/components/idf_cloud/controller.js"></script>
+        <script src="scripts/components/idf_cloud/directive.js"></script>
+
+        <script src="scripts/components/idf_location/module.js"></script>
+        <script src="scripts/components/idf_location/controller.js"></script>
+        <script src="scripts/components/idf_location/directive.js"></script>
 
         <script src="scripts/components/document/module.js"></script>
         <script src="scripts/components/document/controller.js"></script>

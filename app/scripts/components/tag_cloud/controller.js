@@ -9,7 +9,7 @@
             nTags;
 
         nTags = _.map(tags, function(t){
-          t.size = Math.tanh(t.size / maxSize) * 150;
+          t.size = Math.tanh(t.size / maxSize) * (parseInt($scope.zoomLevel) * 150);
           return t;
         });
 
@@ -44,6 +44,7 @@
         $scope.state = StateHandler.getInstance();
         $scope.tags = [ ];
         $scope.loadEntities = loadEntities;
+        $scope.zoomLevel = '1';
 
         $timeout(function(){
           loadEntities();

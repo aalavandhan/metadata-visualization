@@ -6,9 +6,20 @@ angular.module("c.data")
     function Entity(){ };
 
 
-    Entity.getValidDates = function(docType, e, filters){
+    Entity.getValidDates = function(docType, e, queries){
 
       var deferred = $q.defer();
+
+
+      var queryObj = _.map(queries, function(q){
+        return _.map(q.tags, function(t){ return t.text.split("-").join(" ") });
+      });
+
+      var filters = _.map(queryObj, function(q){
+        return _.map(q, function(r){
+          return { entity: 'sweet', string: r }
+        });
+      });
 
       var validYearsFrom = function(dates){
         return _.chain(dates)
@@ -29,7 +40,7 @@ angular.module("c.data")
       new Aggregator(docType, "DATE")
           .tokenization(true)
           .useOccuranceCount(true)
-          .buildFilters(e, filters)
+          .buildFilters(filters)
           .buildQuery(1000)
           .aggregate()
           .then(function(response){
@@ -42,12 +53,24 @@ angular.module("c.data")
 
     };
 
-    Entity.getLocationsByYear = function(docType, year, size){
+    Entity.getLocationsByYear = function(docType, year, size, queries){
       var deferred = $q.defer();
+
+      var queryObj = _.map(queries, function(q){
+        return _.map(q.tags, function(t){ return t.text.split("-").join(" ") });
+      });
+
+      var filters = _.map(queryObj, function(q){
+        return _.map(q, function(r){
+          return { entity: 'sweet', string: r }
+        });
+      });
+
+      filters.push([{ entity: 'DATE', string: year.toString(), fuzzy: true }]);
 
       new Aggregator(docType, "geo")
             .setSourceFilter('locations')
-            .buildFilters("DATE", [[year.toString()]], true)
+            .buildFilters(filters, true)
             .overrideQuery({
               "entity_name": {
                  "terms": {

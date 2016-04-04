@@ -33,6 +33,16 @@ angular
         controller: 'c.util.controllers.StaticPageController',
       })
 
+      .when('/documents', {
+        templateUrl: 'app/scripts/sections/home/list.html',
+        controller: 'c.util.controllers.StaticPageController',
+      })
+
+      .when('/documents/:type', {
+        templateUrl: 'app/scripts/sections/home/documents.html',
+        controller: 'c.util.controllers.StaticPageController',
+      })
+
       .when('/documents/:type/:id', {
         templateUrl: 'app/scripts/sections/home/document.html',
         controller: 'c.util.controllers.StaticPageController',
@@ -55,6 +65,16 @@ angular
 
       .when('/visualizations/geo_pie', {
         templateUrl: 'app/scripts/sections/visualizations/geo_pie.html',
+        controller: 'c.util.controllers.StaticPageController',
+      })
+
+      .when('/visualizations/idf_sweet', {
+        templateUrl: 'app/scripts/sections/visualizations/idf_sweet.html',
+        controller: 'c.util.controllers.StaticPageController',
+      })
+
+      .when('/visualizations/idf_location', {
+        templateUrl: 'app/scripts/sections/visualizations/idf_location.html',
         controller: 'c.util.controllers.StaticPageController',
       })
 

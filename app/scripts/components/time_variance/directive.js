@@ -2,11 +2,7 @@
   var app = angular.module("c.components.timeVariance");
   app.directive("cTimeVariance", [function(){
     return{
-      scope: {
-        docType: "=",
-        entity: "=",
-        query: "=",
-      },
+      scope: { },
       replace: true,
       templateUrl: "app/scripts/components/time_variance/template.html",
       controller: "c.components.timeVariance.Controller",

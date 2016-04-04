@@ -1,0 +1,38 @@
+<div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label>Order:</label>
+
+        <select class="form-control" data-ng-model="order">
+          <option value="-1">Top Down</option>
+          <option value="1">Bottom Up</option>
+          <option value="0">Random</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group" style="padding-top: 10px;">
+        <label>Size: {{ size.value }}</label>
+        <div ui-slider  min="1" max="250" ng-model="size.value"></div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group" style="padding-top: 20px;">
+        <button class="btn btn-primary pull-right"
+                data-ng-click="refresh()"
+                data-ng-disabled="state.isWorking">Refresh Cloud</button>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="row" class="idf-cloud-cont">
+    <div class="col-md-12">
+      <div class="idf-cloud"></div>
+    </div>
+  </div>
+</div>

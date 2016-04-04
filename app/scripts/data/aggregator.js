@@ -43,20 +43,21 @@ angular.module("c.data")
       return this;
     };
 
-    Aggregator.prototype.buildFilters = function(e, filterValues, fuzzyMatch){
+    Aggregator.prototype.buildFilters = function(filterValues){
       var self = this,
           filterQuery = { }
-          entity = getName(e),
-          entityFullName = fuzzyMatch ? entity + '.name' : entity + '.name.raw';
+          entityFullName = function(entity, fuzzy){
+            return fuzzy ? entity + '.name' : entity + '.name.raw';
+          };
 
       if(filterValues.length == 0){
         return this;
       };
 
-      var orElement = function(entityVal, fuzzyMatch){
+      var orElement = function(v, fuzzyMatch){
         var dh = {};
 
-        dh[entityFullName] = entityVal;
+        dh[entityFullName(getName(v.entity), v.fuzzy)] = v.string;
 
         return {
           "bool":{
@@ -69,7 +70,7 @@ angular.module("c.data")
         }
       };
 
-      var andElement = function(orElements){
+      var andElement = function(orElements, entity){
         return {
           "nested": {
             "path": entity,
@@ -83,7 +84,7 @@ angular.module("c.data")
       };
 
       var queryHash = _.map(filterValues, function(t){
-        return andElement(_.map(t, orElement));
+        return andElement(_.map(t, orElement), getName(t[0].entity));
       });
 
       this.filter = {

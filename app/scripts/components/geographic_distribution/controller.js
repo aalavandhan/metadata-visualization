@@ -25,7 +25,7 @@
 
         $scope.state.initiate();
 
-        Entity.getCountDocumentWithinRegions('application-pdf', coords).then(function(response){
+        Entity.getCountDocumentWithinRegions($scope.docType, coords).then(function(response){
           region.documentCount = response.count;
           $scope.state.success();
           $scope.regions.push(region);

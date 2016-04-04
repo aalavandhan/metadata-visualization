@@ -1,17 +1,24 @@
 <div>
   <div class="row">
-    <div class="col-md-4">
-      <div c-doc-type-filter data-doc-type="docType"></div>
-    </div>
-
-    <div class="col-md-4">
-      <div c-entity-filter data-entity="entity"></div>
+    <div class="col-md-12">
+      <div c-tag-cloud></div>
     </div>
   </div>
 
+  <hr />
+
   <div class="row">
     <div class="col-md-12">
-      <div c-tag-cloud data-doc-type="docType" data-entity="entity" data-magnification="magnification.value"></div>
+      <h3>Tag Cloud</h3>
+
+      <p>
+        This visualization leverages Elasticsearch term aggregations to fetch the
+        top 1000 most occurring entities for a given file type. While performing NER
+        on the trec polar dataset not only identify entities but also the number of times
+        they occur in each document. The <i>Aggregation Type</i> filter aggregates entities
+        based on the number of times they've occurred through the dataset ( or ) based on the number of documents in which they've occurred. We also use elasticsearch's inherent
+        tokenization mechanism to aggregate entities in their actual / tokenized form.
+      </p>
     </div>
   </div>
 </div>
