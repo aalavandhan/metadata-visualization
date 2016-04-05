@@ -39,6 +39,7 @@
           $scope.state.success();
           $scope.data = normalizedScores(data);
           $scope.refresh($scope.data);
+          $scope.$apply();
         });
 
         $scope.size = { value: 100 };

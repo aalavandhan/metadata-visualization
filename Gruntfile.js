@@ -477,7 +477,7 @@ module.exports = function (grunt) {
     // angular templates task
     ngtemplates:  {
       metadataVisualizationApp: {
-        src: ['app/scripts/components/{,*/}*.html', 'app/scripts/sections/{,*/}*.html', 'app/scripts/util/{,*/}*.html'],
+        src: ['app/scripts/components/{,*/}*.html', 'app/scripts/sections/{,*/}*.html', 'app/scripts/util/templates/*.html'],
         dest: 'app/scripts/generated_templates.js'
       }
     },

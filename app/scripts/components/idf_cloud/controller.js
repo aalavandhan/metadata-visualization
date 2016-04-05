@@ -9,6 +9,7 @@
         d3.dsv("|", "text/plain")("data/idf-sweet.csv", function(data){
           $scope.state.success();
           $scope.data = data;
+          $scope.$apply();
           $scope.display($scope.data);
         });
       };

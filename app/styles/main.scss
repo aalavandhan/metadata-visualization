@@ -271,3 +271,18 @@ a.bubble-label {
   font: 11px sans-serif;
   white-space: nowrap;
 }
+
+.leaflet-draw-toolbar a {
+  background-image: url('../images/spritesheet.png') !important;
+  background-repeat: no-repeat;
+}
+
+.leaflet-retina .leaflet-draw-toolbar a {
+  background-image: url('../images/spritesheet-2x.png') !important;
+  background-size: 270px 30px;
+}
+
+.leaflet-retina .leaflet-control-layers-toggle {
+    background-image: url(../images/layers-2x.png) !important;
+    background-size: 26px 26px;
+}

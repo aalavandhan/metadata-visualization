@@ -211,7 +211,15 @@ angular.module('metadataVisualizationApp').run(['$templateCache', function($temp
     "    <label>Document Type</label>\n" +
     "    <select class=\"form-control\" data-ng-model=\"documentType\">\n" +
     "      <option value=\"application-pdf\">application/pdf</option>\n" +
+    "      <option value=\"text-html\">text/html</option>\n" +
+    "      <option value=\"application-xhtml-xml\">application/xhtml+xml</option>\n" +
+    "      <option value=\"application-rss-xml\">application/rss+xml</option>\n" +
     "      <option value=\"image-jpeg\">image/jpeg</option>\n" +
+    "      <option value=\"image-gif\">image/gif</option>\n" +
+    "      <option value=\"image-png\">image/png</option>\n" +
+    "      <option value=\"video-mp4\">video/mp4</option>\n" +
+    "      <option value=\"video-mpeg\">video/mpeg</option>\n" +
+    "      <option value=\"video-quicktime\">video/quicktime</option>\n" +
     "    </select>\n" +
     "  </div>\n" +
     "</div>\n"
@@ -727,7 +735,15 @@ angular.module('metadataVisualizationApp').run(['$templateCache', function($temp
     "\n" +
     "    <ul>\n" +
     "      <li><a href=\"#/documents/application-pdf\">application/pdf</a></li>\n" +
-    "      <li><a href=\"#/documents/image-jpeg\">application/jpeg</a></li>\n" +
+    "      <li><a href=\"#/documents/text-html\">text/html</a></li>\n" +
+    "      <li><a href=\"#/documents/application-xhtml-xml\">application/xhtml+xml</a></li>\n" +
+    "      <li><a href=\"#/documents/application-rss-xml\">application/rss+xml</a></li>\n" +
+    "      <li><a href=\"#/documents/image-jpeg\">image/jpeg</a></li>\n" +
+    "      <li><a href=\"#/documents/image-gif\">image/gif</a></li>\n" +
+    "      <li><a href=\"#/documents/image-png\">image/png</a></li>\n" +
+    "      <li><a href=\"#/documents/video-mp4\">video/mp4</a></li>\n" +
+    "      <li><a href=\"#/documents/video-mpeg\">video/mpeg</a></li>\n" +
+    "      <li><a href=\"#/documents/video-quicktime\">video/quicktime</a></li>\n" +
     "    </ul>\n" +
     "  </div>\n" +
     "</div>\n"
