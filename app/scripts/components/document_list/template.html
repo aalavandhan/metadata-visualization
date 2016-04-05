@@ -9,7 +9,7 @@
           <span data-ng-bind="d.displayType() | uppercase"></span>
           <span data-ng-if="d.isJournal()">[Journal]</span>
         </p>
-        <a href="{{d.doi}}">{{d.id}}</a>
+        <a href="{{d.doi}}">{{d.id}}</a> - {{ d['metadata-score'] || d['_score'] }}
       </div>
 
       <div class="body">

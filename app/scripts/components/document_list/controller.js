@@ -22,7 +22,11 @@
               "metadata-score",
               "local-path",
             ]
-          }
+          },
+           "sort" : [
+              { "metadata-score" : "desc" },
+              "_score"
+          ]
         }, function(){
           $scope.state.success();
         }, function(){

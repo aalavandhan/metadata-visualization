@@ -159,7 +159,7 @@ angular.module('metadataVisualizationApp').run(['$templateCache', function($temp
     "          <span data-ng-bind=\"d.displayType() | uppercase\"></span>\n" +
     "          <span data-ng-if=\"d.isJournal()\">[Journal]</span>\n" +
     "        </p>\n" +
-    "        <a href=\"{{d.doi}}\">{{d.id}}</a>\n" +
+    "        <a href=\"{{d.doi}}\">{{d.id}}</a> - {{ d['metadata-score'] || d['_score'] }}\n" +
     "      </div>\n" +
     "\n" +
     "      <div class=\"body\">\n" +
